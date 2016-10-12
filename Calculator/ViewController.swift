@@ -37,6 +37,15 @@ class ViewController: UIViewController {
     
     @IBAction func keyPressed(_ sender: UIButton) {
         
+        UIView.animate(withDuration: 0.1 , animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+            }, completion: {
+                finish in UIView.animate(withDuration: 0.1){
+                    sender.transform = CGAffineTransform.identity
+                }
+        })
+        
+        
         if let key = sender.titleLabel?.text {
             switch key {
             case "1","2","3","4","5","6","7","8","9","0" :
