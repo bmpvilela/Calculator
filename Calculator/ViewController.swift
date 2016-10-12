@@ -37,6 +37,7 @@ class ViewController: UIViewController {
     
     @IBAction func keyPressed(_ sender: UIButton) {
         
+        // Animate buttons on press
         UIView.animate(withDuration: 0.1 , animations: {
             sender.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
             }, completion: {
@@ -45,18 +46,17 @@ class ViewController: UIViewController {
                 }
         })
         
-        
+        // Check wich key as pressed
         if let key = sender.titleLabel?.text {
             switch key {
             case "1","2","3","4","5","6","7","8","9","0" :
-                
                 numberString = numberString + key
                 result = Double(numberString)!
-                //infoDisplay.text = String(result)
                 displayData(result, nil, nil)
             
             case "+/-":
                 result *= -1
+                displayData(result,result,"-")
                 
             case "n!":
                 result = mathService.factorial(result)
@@ -68,9 +68,8 @@ class ViewController: UIViewController {
             
             case "AC":
                 numberString = ""
-                result = 0
+                result = mathService.reset()
                 displayData(result, nil, nil)
-                
                 
             default:
                 infoDisplay.text = String(result) + key

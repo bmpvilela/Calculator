@@ -8,15 +8,18 @@
 
 import Foundation
 
+// Math service calculator
 class MathService{
     
-    var result : Int = 0
+    var result : Double = 0
     
-    func add(number_1: Int, number_2: Int) -> Int {
+    // Add two numbers
+    func add(number_1: Int, number_2: Int) -> Double {
         
         return self.result
     }
     
+    // Factorial
     func factorial(_ number: Double) -> Double {
         
         if (number <= 1) {
@@ -26,9 +29,15 @@ class MathService{
         return number * factorial(number - 1)
     }
     
+    // Quareroot
     func squareroot (_ number: Double) -> Double {
         
         return sqrt(number)
+    }
+    
+    //Reset
+    func reset() -> Double{
+        return 0
     }
     
 }
