@@ -12,18 +12,23 @@ class MathService{
     
     var result : Int = 0
     
-    func add(number_1: Int, number_2: Int) -> Int{
+    func add(number_1: Int, number_2: Int) -> Int {
         
         return self.result
     }
     
-    func factorial(_ number: Double) -> (Double) {
+    func factorial(_ number: Double) -> Double {
         
         if (number <= 1) {
             return 1
         }
         
         return number * factorial(number - 1)
+    }
+    
+    func squareroot (_ number: Double) -> Double {
+        
+        return sqrt(number)
     }
     
 }

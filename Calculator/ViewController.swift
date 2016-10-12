@@ -52,7 +52,10 @@ class ViewController: UIViewController {
             case "n!":
                 result = mathService.factorial(result)
                 displayData(result,result,"!")
-                
+            
+            case "√n":
+                result = mathService.squareroot(result)
+                displayData(result,result,"√")
             
             case "AC":
                 numberString = ""
