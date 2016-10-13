@@ -67,24 +67,31 @@ class ViewController: UIViewController {
 						displayData(0, result, operation)
 					}
 				
-                case "+/-":
-                    result *= -1
-                    displayData(result,result,"-")
-                
+				case "AC":
+					operation = ""
+					clearDisplayString()
+					result = mathService.reset()
+					displayData(result, nil, nil)
+				
                 case "n!":
                     result = mathService.factorial(result)
                     displayData(result,result,"!")
-            
+				
                 case "√n":
                     result = mathService.squareroot(result)
                     displayData(result,result,"√")
-            
-                case "AC":
-					operation = ""
-                    clearDisplayString()
-                    result = mathService.reset()
-                    displayData(result, nil, nil)
 				
+				case "DEL":
+					if (numberString.characters.count > 1){
+						numberString = myUtils.removeLastChar(numberString)
+						result = Double(numberString)!
+						displayData(result, nil, nil)
+					}
+				
+				case "+/-":
+					result *= -1
+					displayData(result,result,"-")
+
 				case "=":
 					result = mathService.equal(number_1, result, operation)
 					displayData(result, nil, nil)

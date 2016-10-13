@@ -70,10 +70,10 @@ class MathService{
 			case "-":
 				result = subtract(number_1, number_2)
 			
-			case "-":
+			case "*":
 				result = multiply(number_1, number_2)
 			
-			case "-":
+			case "/":
 				result = divide(number_1, number_2)
 			
 			default:

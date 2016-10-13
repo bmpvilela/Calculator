@@ -13,7 +13,7 @@ class Utils{
 
     // Converts a string in a int
     // with signed number check
-    func strToInt(str: String) -> Int{
+    func strToInt(_ str: String) -> Int{
     
         var index: Int = 0
         var num: Int = 0
@@ -35,5 +35,11 @@ class Utils{
         
         return num
     }
+	
+	func removeLastChar(_ str: String) -> String {
+		
+		return str.substring(to: str.index(before: str.endIndex))
+		
+	}
     
 }
