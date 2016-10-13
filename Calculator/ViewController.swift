@@ -59,12 +59,13 @@ class ViewController: UIViewController {
                     result = Double(numberString)!
                     displayData(result, nil, nil)
 				
-				case "+":
+				case "+","-","*","/":
 					if (operation == ""){
-					operation = key
-					number_1 = result
-					clearDisplayString()
-						displayData(0, result, operation)}
+						operation = key
+						number_1 = result
+						clearDisplayString()
+						displayData(0, result, operation)
+					}
 				
                 case "+/-":
                     result *= -1

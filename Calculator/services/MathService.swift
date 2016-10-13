@@ -18,7 +18,26 @@ class MathService{
         
         return (number_1 + number_2)
     }
-    
+	
+	// Subtract two numbers
+	func subtract(_ number_1: Double,_ number_2: Double) -> Double {
+		
+		return (number_1 - number_2)
+	}
+	
+	// Subtract two numbers
+	func multiply(_ number_1: Double,_ number_2: Double) -> Double {
+		
+		return (number_1 * number_2)
+	}
+	
+	// Subtract two numbers
+	func divide(_ number_1: Double,_ number_2: Double) -> Double {
+		
+		return (number_1 / number_2)
+	}
+	
+	
     // Factorial
     func factorial(_ number: Double) -> Double {
         
@@ -47,6 +66,15 @@ class MathService{
 		
 			case "+":
 				result = add(number_1, number_2)
+			
+			case "-":
+				result = subtract(number_1, number_2)
+			
+			case "-":
+				result = multiply(number_1, number_2)
+			
+			case "-":
+				result = divide(number_1, number_2)
 			
 			default:
 				break
