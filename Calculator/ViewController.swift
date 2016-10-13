@@ -34,19 +34,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func reset(_ sender: UIButton) {
-        result = 0
-        displayData(result, nil, nil)
-    }
-    
-    
     @IBAction func keyPressed(_ sender: UIButton) {
 		
         // Animate buttons on press
-        UIView.animate(withDuration: 0.1 , animations: {
+        UIView.animate(withDuration: 0.05 , animations: {
             sender.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
             }, completion: {
-                finish in UIView.animate(withDuration: 0.1){
+                finish in UIView.animate(withDuration: 0.05){
                     sender.transform = CGAffineTransform.identity
                 }
         })
