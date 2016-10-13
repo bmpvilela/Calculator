@@ -53,7 +53,17 @@ class MathService{
         
         return sqrt(number)
     }
-    
+	
+	//Power
+	func power(_ number_1: Double,_ number_2: Double) -> Double{
+	
+		if (number_2 <= 0){
+			return 1
+		}
+		
+		return number_1 * power (number_1, number_2 - 1)
+	}
+	
     // Reset
     func reset() -> Double{
         return 0
@@ -75,6 +85,9 @@ class MathService{
 			
 			case "/":
 				result = divide(number_1, number_2)
+			
+			case "n^p":
+				result = power(number_1, number_2)
 			
 			default:
 				break

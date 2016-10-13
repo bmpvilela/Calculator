@@ -53,7 +53,7 @@ class ViewController: UIViewController {
                     result = Double(numberString)!
                     displayData(result, nil, nil)
 				
-				case "+","-","*","/":
+				case "+","-","*","/","n^p":
 					if (operation == ""){
 						operation = key
 						number_1 = result
