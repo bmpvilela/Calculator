@@ -12,12 +12,17 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var display: UITextField!
     @IBOutlet weak var infoDisplay: UITextField!
-    
+	
+	// Classes
+	let mathService = MathService()
+	let myUtils = Utils()
+	
+	// Vars
     var result = Double()
+	var number_1 = Double()
+	var operation = String()
+	
     var numberString = String()
-    
-    let mathService = MathService()
-    let myUtils = Utils()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +41,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func keyPressed(_ sender: UIButton) {
-        
+		
         // Animate buttons on press
         UIView.animate(withDuration: 0.1 , animations: {
             sender.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
@@ -49,35 +54,51 @@ class ViewController: UIViewController {
         // Check wich key as pressed
         if let key = sender.titleLabel?.text {
             switch key {
-            case "1","2","3","4","5","6","7","8","9","0" :
-                numberString = numberString + key
-                result = Double(numberString)!
-                displayData(result, nil, nil)
-            
-            case "+/-":
-                result *= -1
-                displayData(result,result,"-")
+                case "1","2","3","4","5","6","7","8","9","0":
+                    numberString = numberString + key
+                    result = Double(numberString)!
+                    displayData(result, nil, nil)
+				
+				case "+":
+					if (operation == ""){
+					operation = key
+					number_1 = result
+					clearDisplayString()
+						displayData(0, result, operation)}
+				
+                case "+/-":
+                    result *= -1
+                    displayData(result,result,"-")
                 
-            case "n!":
-                result = mathService.factorial(result)
-                displayData(result,result,"!")
+                case "n!":
+                    result = mathService.factorial(result)
+                    displayData(result,result,"!")
             
-            case "√n":
-                result = mathService.squareroot(result)
-                displayData(result,result,"√")
+                case "√n":
+                    result = mathService.squareroot(result)
+                    displayData(result,result,"√")
             
-            case "AC":
-                numberString = ""
-                result = mathService.reset()
-                displayData(result, nil, nil)
-                
-            default:
-                infoDisplay.text = String(result) + key
+                case "AC":
+					operation = ""
+                    clearDisplayString()
+                    result = mathService.reset()
+                    displayData(result, nil, nil)
+				
+				case "=":
+					result = mathService.equal(number_1, result, operation)
+					displayData(result, nil, nil)
+				
+				default:
+					operation = ""
+					break
+				
+                //default:
+//				if (operation != "") {
+//					infoDisplay.text = String(result) + key
+//				}else{
+//					//infoDisplay.text = String(result)
+//				}
             }
-            
-        }
-        else {
-            // sender.titleLabel.text is nil
         }
     }
     
@@ -95,6 +116,12 @@ class ViewController: UIViewController {
         }
         
     }
+	
+	//Clear the main display aux string
+	func clearDisplayString(){
+		numberString = ""
+		
+	}
     
 }
 

@@ -14,9 +14,9 @@ class MathService{
     var result : Double = 0
     
     // Add two numbers
-    func add(number_1: Int, number_2: Int) -> Double {
+    func add(_ number_1: Double,_ number_2: Double) -> Double {
         
-        return self.result
+        return (number_1 + number_2)
     }
     
     // Factorial
@@ -35,9 +35,25 @@ class MathService{
         return sqrt(number)
     }
     
-    //Reset
+    // Reset
     func reset() -> Double{
         return 0
     }
+	
+	// Equal
+	func equal(_ number_1: Double,_ number_2: Double,_ operation: String) -> Double {
+		
+		switch (operation){
+		
+			case "+":
+				result = add(number_1, number_2)
+			
+			default:
+				break
+			
+		}
+		
+		return result
+	}
     
 }
