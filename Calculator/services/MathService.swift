@@ -14,25 +14,25 @@ class MathService{
     var result : Double = 0
     
     // Add two numbers
-    func add(_ number_1: Double,_ number_2: Double) -> Double {
+    private func add(_ number_1: Double,_ number_2: Double) -> Double {
         
         return (number_1 + number_2)
     }
 	
 	// Subtract two numbers
-	func subtract(_ number_1: Double,_ number_2: Double) -> Double {
+	private func subtract(_ number_1: Double,_ number_2: Double) -> Double {
 		
 		return (number_1 - number_2)
 	}
 	
 	// Subtract two numbers
-	func multiply(_ number_1: Double,_ number_2: Double) -> Double {
+	private func multiply(_ number_1: Double,_ number_2: Double) -> Double {
 		
 		return (number_1 * number_2)
 	}
 	
 	// Subtract two numbers
-	func divide(_ number_1: Double,_ number_2: Double) -> Double {
+	private func divide(_ number_1: Double,_ number_2: Double) -> Double {
 		
 		return (number_1 / number_2)
 	}
@@ -48,7 +48,7 @@ class MathService{
         return number * factorial(number - 1)
     }
     
-    // Quareroot
+    // Squareroot
     func squareroot (_ number: Double) -> Double {
         
         return sqrt(number)
@@ -66,7 +66,8 @@ class MathService{
 	
     // Reset
     func reset() -> Double{
-        return 0
+		
+		return 0
     }
 	
 	// Equal
@@ -77,13 +78,13 @@ class MathService{
 			case "+":
 				result = add(number_1, number_2)
 			
-			case "-":
+			case "−":
 				result = subtract(number_1, number_2)
 			
-			case "*":
+			case "×":
 				result = multiply(number_1, number_2)
 			
-			case "/":
+			case "÷":
 				result = divide(number_1, number_2)
 			
 			case "n^p":

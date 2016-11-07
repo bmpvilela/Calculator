@@ -45,7 +45,7 @@ class ViewController: UIViewController {
                 }
         })
         
-        // Check wich key as pressed
+        // Check which key as pressed
         if let key = sender.titleLabel?.text {
             switch key {
                 case "1","2","3","4","5","6","7","8","9","0":
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
                     result = Double(numberString)!
                     displayData(result, nil, nil)
 				
-				case "+","-","*","/","n^p":
+				case "+","−","×","÷","n^p":
 					if (operation == ""){
 						operation = key
 						number_1 = result
@@ -82,7 +82,7 @@ class ViewController: UIViewController {
 						displayData(result, nil, nil)
 					}
 				
-				case "+/-":
+				case "±":
 					result *= -1
 					displayData(result,result,"-")
 
@@ -105,7 +105,7 @@ class ViewController: UIViewController {
     }
     
     // Send values to calculator displays
-    func displayData (_ mainDisplay: Double,_ secondDisplay: Double?,_ operation: String?){
+    private func displayData (_ mainDisplay: Double,_ secondDisplay: Double?,_ operation: String?){
         
         display.text = String(mainDisplay)
         
@@ -120,7 +120,7 @@ class ViewController: UIViewController {
     }
 	
 	//Clear the main display aux string
-	func clearDisplayString(){
+	private func clearDisplayString(){
 		numberString = ""
 		
 	}
